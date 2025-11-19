@@ -1,13 +1,17 @@
-# installed by pip requests and beautifulsoup4
-import requests, bs4
+import bs4
 
-res = requests.get('https://nostarch.com')
+exampleFile = open('example.html')
+exampleSoup = bs4.BeautifulSoup(exampleFile.read(), 'html.parser')
+elems = exampleSoup.select('#author')
 
-res.raise_for_status()
+# print(type(elems))
+# print(elems[0].attrs)
 
-noStarchSoup = bs4.BeautifulSoup(res.text, 'html.parser')
-print(type(noStarchSoup))
+pElems = exampleSoup.select('p')
 
-exampleFile = open('example.html');
-exampleSoup = bs4.BeautifulSoup(exampleFile, 'html-parser')
-print(type(exampleSoup))
+# print(pElems)
+print(len(pElems))
+
+for i in range(len(pElems)):
+    print(pElems[i].getText())
+    

@@ -159,14 +159,14 @@ def run_mikrotik_task():
     if disconnected:
         disconnected_names = [d["name"] for d in disconnected]
         subject = "CITS NETWORK ALERT: Disconnected Users"
-        body = f"The following users are disconnected:\n\n" + "\n".join(disconnected_names)
+        body = f"The following {len(disconnected_names)} users are disconnected:\n\n" + "\n".join(disconnected_names)
         send_email(subject, body, EMAIL_RECEIVERS, attachment_path="CITS_Client_Report.xlsx")
     else:
         print("No Disconnected users")
 
 
 # Auto run every 1-minute
-
+seconds = 60 * 60 * 8
 while True:
     try:
         run_mikrotik_task()
@@ -174,4 +174,5 @@ while True:
         print("Error:", e)
             
     print("Waiting 60 minutes for the next run....\n")
-    time.sleep(60*60)
+    print(seconds)
+    time.sleep(seconds)

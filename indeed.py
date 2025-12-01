@@ -9,7 +9,7 @@ import pandas as pd
 
 # Chrome Options
 chrome_options = Options()
-chrome_options.add_argument("--headless=new")  # run browser in background
+# chrome_options.add_argument("--headless=new")  # run browser in background
 chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--window-size=1920,1080")
 
@@ -27,6 +27,9 @@ driver.get("https://ph.indeed.com/jobs?q=Python")
 
 # driver.quit()
 
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+
 try:
     job_cards = WebDriverWait(driver, 10).until(
         EC.presence_of_all_elements_located((By.CSS_SELECTOR, "a.tapItem"))
@@ -36,3 +39,6 @@ except:
     print("No jobs found!")
     
 driver.quit()
+
+
+# not working yet

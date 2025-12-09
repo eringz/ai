@@ -1,9 +1,21 @@
-import os
-import time
+import requests
 
+def get_pronounciation(word):
+    url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
+    
+    res = requests.get(url)
+    
+    if res.status_code != 200:
+        print("Word not found")
+        return
+    
+    data = res.json()[0]
+    print(f"Data: {data}")
+    
+    print("WORD:", data["word"])
+    
+    for p in data.get("phoenetics", []):
+        if "text" in p:
+            print("")
 
-words = input("Do you have something in mind? ")
-
-for w in words:
-    print(w, end="")
-    time.leep(1)
+get_pronounciation("computer")

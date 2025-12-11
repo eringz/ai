@@ -12,10 +12,10 @@ def get_pronounciation(word):
     data = res.json()[0]
     print(f"Data: {data}")
     
-    print("WORD:", data["word"])
+    # print("WORD:", data["word"])
     
-    for p in data.get("phoenetics", []):
-        if "text" in p:
-            print("")
+    # for p in data.get("phoenetics", []):
+    #     if "text" in p:
+    #         print("")
 
 get_pronounciation("computer")

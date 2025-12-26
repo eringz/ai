@@ -1,34 +1,15 @@
-import requests, webbrowser
-from speech import speak_sync
+print("\nNormal Pyramid")
+for i in range(5):
+    x = "*"
+    x = x*i
+    print(f"{x: ^10}")
+    
 
-def get_pronounciation(word):
-    # url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
-    
-    # res = requests.get(url)
-    
-    # if res.status_code != 200:
-    #     print("Word not found")
-    #     return
-    
-    # data = res.json()[0]
-    # # print(f"Data: {data}")
-    
-    # # print("WORD:", data["word"])
-    # # print("Phonetic:", data["phonetic"])
-    # # print(f"Phonetics: {data["phonetics"][0]["audio"]}")
-    
-    # audio_url = data["phonetics"][0]["audio"]
-    # print(audio_url)
-
-    # webbrowser.open(audio_url)
-    speak_sync(word)
-    
-    
-    # for p in data.get("phoenetics", []):
-    #     if "text" in p:
-    #         print("")
+print("\nInvert Pyramid")
+for i in range(5):
+    x = "*"
+    x = x * (5-i)
+    print(f"{x: ^10}")
 
 
-while True:
-    word = input("Enter the word: ")
-    get_pronounciation(word)
+    

@@ -1,15 +1,6 @@
-print("\nNormal Pyramid")
-for i in range(5):
-    x = "*"
-    x = x*i
-    print(f"{x: ^10}")
-    
-
-print("\nInvert Pyramid")
-for i in range(5):
-    x = "*"
-    x = x * (5-i)
-    print(f"{x: ^10}")
+from selenium import webdriver
+from selenium.webdriver.common.service import Service
 
 
-    
+service = Service(executable_path="")
+driver = webdriver.Chrome(service=service)

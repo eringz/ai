@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.service import Service
 from dotenv import load_dotenv
 import os
+import time
 
 load_dotenv()
 
@@ -14,3 +15,4 @@ driver = webdriver.Chrome(service=service)
 
 
 
+time.sleep(2)

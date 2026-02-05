@@ -27,9 +27,10 @@ load_dotenv()
 
 username = os.getenv("PAYSLIP_USERNAME")
 password = os.getenv("PAYSLIP_PASSWORD")
+web = os.getenv("WEBSITE")
 
 driver = webdriver.Chrome()
-driver.get("https://clickpay.cpi-outsourcing.com/fai/auth")
+driver.get(web)
 # driver.get("https://clickpay.cpi-outsourcing.com/fai/payroll/downloadpayslip/speriod/2025-12-01")
 
 time.sleep(2)
@@ -38,6 +39,8 @@ driver.find_element(By.ID, "username").send_keys(username)
 driver.find_element(By.ID, "password").send_keys(password)
 driver.find_element(By.ID, "loginbutton").click()
 driver.find_element(By.ID, "ico_payroll").click()
+
+
 
 time.sleep(5)
 
